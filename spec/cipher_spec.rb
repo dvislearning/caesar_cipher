@@ -34,7 +34,7 @@ describe 'cipher' do
  		expect(caesar_cipher("hello world xyz", 24817)).to eq("uryyb jbeyq klm")
 	 end
 	 
-	 it "returns correct string when shifted a a negative value" do
+	 it "returns correct string when shifted a negative value" do
  		expect(caesar_cipher("hello world xyz abc", -2)).to eq("fcjjm umpjb vwx yza")
 	 end	 
 
