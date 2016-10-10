@@ -1,6 +1,31 @@
+require 'sinatra'
+require 'sinatra/reloader'
+
+text = nil
+shift = nil
+shifted_message = nil
+
+get '/' do
+
+	erb :index, :locals => {:text => text, :shift => shift, :shifted_message => shifted_message}
+end
+
+post '/' do
+    text = params["entry"]
+    shift = params["shift"]
+    shifted_message = caesar_cipher(text, shift)
+
+    erb :index, :locals => {:text => text, :shift => shift, :shifted_message => shifted_message}
+end
+
+get '/reload' do
+    redirect ('/')
+end
+
 
 def caesar_cipher(text, shift)
-	modelo_shift = shift%26
+    return "Text must not exceed 140 characters.<br>Try Again." if text.length > 140
+	modelo_shift = shift.to_i % 26
 	message = text.split("")
 	cipher = Array.new
 	message.map do |character|

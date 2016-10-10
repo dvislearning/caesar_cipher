@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <style>
+            body {
+                background: #FF3300;
+                text-align: center;
+                padding: 20px; 
+            }
+
+            label {
+                font-size: 18px; 
+                color:white;
+                text-shadow: 0 0 4px black
+                text-decoration: overline;
+
+            }
+
+            #caesar_pic {
+                width: 200px;
+                height: 200px;
+                border: 3px solid black;
+                border-radius: 50%;
+            }
+
+            #top-bottom-text{
+                font-size: 45px;
+                color: black;
+                text-shadow: 0 0 4px white;      
+            }
+        </style>
+    </head>
+    <body>
+        <p id="top-bottom-text">
+            'Lil Caesar Cipher
+        </p>
+        <p>
+            <img id ="caesar_pic" src="caesar.jpg">
+        </p>
+        <p>  
+            <form method='POST' action='/'>
+                <label>Enter Text to Encode</label><br><br>
+                <input type='text'  name='entry' />  
+                <br><br>
+                <label>Enter Number of Positions to Shift</label><br><br>
+                <input type='number' min='0' max='1000' name='shift' />
+                <br><br>
+                <input type='submit' value='Submit' /> 
+                <input type='submit'  action='/reload' value='Reset' /> 
+            </form>
+        </p>            
+        <p id="top-bottom-text">
+            <%= shifted_message %>
+        </p>
+
+        <p>
+            
+        </p>        
+    </body>
+</html>
